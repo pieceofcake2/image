@@ -2,6 +2,7 @@
 
 App::uses('ConnectionManager', 'Model');
 App::uses('DataSource', 'Model/Datasource');
+App::uses('ImageValidationBehavior', 'Image.Model/Behavior');
 App::uses('Model', 'Model');
 
 /**
@@ -186,6 +187,21 @@ class ImageValidationBehaviorTest extends CakeTestCase
         $this->assertSame([], $this->errors(null, $rules));
         $this->Upload->set(['file' => 'not an upload']);
         $this->assertTrue($this->Upload->validates());
+    }
+
+    /**
+     * The behavior works with the defaults when it is not attached to the model
+     *
+     * @return void
+     */
+    public function testBehaviorWithoutSettings(): void
+    {
+        $behavior = new ImageValidationBehavior();
+        $file = ['tmp_name' => $this->raster('png', 10, 10), 'error' => UPLOAD_ERR_OK];
+
+        $this->assertTrue($behavior->imageType($this->Upload, ['file' => $file]));
+        $this->assertTrue($behavior->imageWidth($this->Upload, ['file' => $file], 10));
+        $this->assertFalse($behavior->imageType($this->Upload, ['file' => ['tmp_name' => $this->svg(), 'error' => UPLOAD_ERR_OK]]));
     }
 
     /**

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.0 - unreleased
+## 1.0.0 - 2026-10-18
 
 First release of `pieceofcake2/image`.
 

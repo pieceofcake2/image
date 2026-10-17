@@ -79,7 +79,7 @@ class ImageValidationBehavior extends ModelBehavior
     {
         // Without parameters, CakePHP passes the rule settings (with `rule`) as the last argument
         if ($types === null || (is_array($types) && array_key_exists('rule', $types))) {
-            $types = $this->settings[$model->alias]['types'];
+            $types = $this->settings[$model->alias]['types'] ?? self::DEFAULTS['types'];
         }
         $path = $this->uploadedPath(reset($check));
         if ($path === null) {
