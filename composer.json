@@ -1,0 +1,46 @@
+{
+    "name": "pieceofcake2/image",
+    "description": "CakePHP 2 plugin that validates uploaded images by their contents: JPEG, PNG, GIF, WebP and strictly allowlisted SVG",
+    "type": "cakephp-plugin",
+    "keywords": [
+        "cakephp",
+        "cakephp2",
+        "image",
+        "upload",
+        "validation",
+        "behavior",
+        "svg",
+        "xss"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=8.0",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "composer/installers": "^1.0 || ^2.0",
+        "pieceofcake2/cakephp": "^2.12"
+    },
+    "require-dev": {
+        "ext-gd": "*",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^9.6",
+        "pieceofcake2/app": "^2.2",
+        "pieceofcake2/phpcs-cakephp2": "^1.1",
+        "pieceofcake2/phpstan-cakephp2": "^1.0"
+    },
+    "autoload-dev": {
+        "exclude-from-classmap": [
+            "vendor/pieceofcake2/app/src/Console/Command/AppShell.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-name": "Image"
+    }
+}
