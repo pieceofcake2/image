@@ -1,8 +1,5 @@
 <?php
 
-App::uses('ImageFile', 'Image.Lib');
-App::uses('ModelBehavior', 'Model');
-
 /**
  * Validation rules for uploaded images: the type and the size, read from the contents of the file
  *

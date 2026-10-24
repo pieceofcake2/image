@@ -24,8 +24,6 @@
  *   escapes, comments, `url()` that is not `#id`, functions such as `expression()`
  *
  * ```
- * App::uses('SvgValidator', 'Image.Lib');
- *
  * $errors = (new SvgValidator())->validate(file_get_contents($path));
  * if ($errors !== []) {
  *     // reject the file

@@ -1,7 +1,5 @@
 <?php
 
-App::uses('SvgValidator', 'Image.Lib');
-
 /**
  * SvgValidator: valid static graphics are accepted, and every known way to run scripts, load
  * resources or attack the XML parser is rejected

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- Composer loads the classes of the plugin (`Lib/` and `Model/` in the classmap), which no longer call `App::uses()`,
+  deprecated in pieceofcake2/cakephp 2.13. The tests also run with pieceofcake2/cakephp 2.12
+
 ## 1.0.0 - 2026-10-18
 
 First release of `pieceofcake2/image`.
