@@ -23,7 +23,7 @@ SVG は受け付けません。
 
 ## インストール
 
-動作要件: PHP 8.0 以上 (`dom`・`libxml` 拡張)、[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.12 以上。
+動作要件: PHP 8.0 以上 (`dom`・`libxml` 拡張)、[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.13 以上。
 
 ```bash
 composer require pieceofcake2/image

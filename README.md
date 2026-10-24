@@ -27,7 +27,7 @@ The Markdown documentation is also included in the Composer package, in the plug
 ## Requirements
 
 * PHP 8.0+ with the `dom` and `libxml` extensions
-* pieceofcake2/cakephp 2.12+
+* pieceofcake2/cakephp 2.13+
 
 ## Installation
 

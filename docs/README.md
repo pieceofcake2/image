@@ -22,7 +22,7 @@ allowlist. It is disabled unless you allow `svg` explicitly.
 ## Installation
 
 Requirements: PHP 8.0+ with the `dom` and `libxml` extensions,
-[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.12+.
+[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.13+.
 
 ```bash
 composer require pieceofcake2/image
