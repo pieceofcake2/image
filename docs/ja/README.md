@@ -23,7 +23,7 @@ SVG は受け付けません。
 
 ## インストール
 
-動作要件: PHP 8.0 以上 (`dom`・`libxml` 拡張)、[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.12 以上。
+動作要件: PHP 8.0 以上 (`dom`・`libxml` 拡張)、[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.13 以上。
 
 ```bash
 composer require pieceofcake2/image
@@ -43,6 +43,9 @@ composer require pieceofcake2/image
 ```php
 CakePlugin::load('Image');
 ```
+
+プラグインのクラス (`ImageValidationBehavior`、`ImageFile`、`SvgValidator`) は Composer が読み込むため、
+`App::uses()` は不要です。
 
 <a id="usage"></a>
 
@@ -131,7 +134,6 @@ public $actsAs = [
 $extension = $this->Article->imageExtension($file['tmp_name']); // 'jpg'、'png'、'gif'、'webp'、'svg'、または null
 
 // モデルを使わない (SVG のオプションは既定値)
-App::uses('ImageValidationBehavior', 'Image.Model/Behavior');
 $extension = ImageValidationBehavior::extensionOf($file['tmp_name']);
 ```
 
@@ -217,8 +219,6 @@ SVG ファイルを検証したうえで、すり抜けた文書があっても�
 通らない SVG の場合は `null`)。
 
 ```php
-App::uses('ImageFile', 'Image.Lib');
-
 $image = ImageFile::read($path); // ['type' => 'png', 'width' => 122, 'height' => 95]
 $image = ImageFile::read($path, ['maxBytes' => 524288]); // SVG のオプションを付けて読む
 ImageFile::extension($image['type']); // 'png'
@@ -228,8 +228,6 @@ ImageFile::extension($image['type']); // 'png'
 もので、そのまま利用者に見せないでください。
 
 ```php
-App::uses('SvgValidator', 'Image.Lib');
-
 $validator = new SvgValidator(['allowStyle' => false]);
 $errors = $validator->validate($contents);
 $size = $validator->dimensions($contents); // [122.0, 95.0]、または null

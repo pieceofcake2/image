@@ -1,7 +1,5 @@
 <?php
 
-App::uses('SvgValidator', 'Image.Lib');
-
 /**
  * Reads the type and the size of an image file from its contents
  *
@@ -10,8 +8,6 @@ App::uses('SvgValidator', 'Image.Lib');
  * size of its `viewBox`. The name of the file and the MIME type sent by the browser are not used.
  *
  * ```
- * App::uses('ImageFile', 'Image.Lib');
- *
  * $image = ImageFile::read($path); // ['type' => 'png', 'width' => 122, 'height' => 95] or null
  * $extension = ImageFile::extension($image['type']); // 'png'
  * ```

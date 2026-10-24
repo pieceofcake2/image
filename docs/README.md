@@ -22,7 +22,7 @@ allowlist. It is disabled unless you allow `svg` explicitly.
 ## Installation
 
 Requirements: PHP 8.0+ with the `dom` and `libxml` extensions,
-[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.12+.
+[pieceofcake2/cakephp](https://github.com/pieceofcake2/cakephp) 2.13+.
 
 ```bash
 composer require pieceofcake2/image
@@ -42,6 +42,9 @@ already use `CakePlugin::loadAll()`, this is not necessary:
 ```php
 CakePlugin::load('Image');
 ```
+
+Composer loads the classes of the plugin (`ImageValidationBehavior`, `ImageFile` and `SvgValidator`),
+so they need no `App::uses()`.
 
 ## Usage
 
@@ -123,7 +126,6 @@ decide the `Content-Type` from the extension.
 $extension = $this->Article->imageExtension($file['tmp_name']); // 'jpg', 'png', 'gif', 'webp', 'svg' or null
 
 // Without a model (the default SVG options)
-App::uses('ImageValidationBehavior', 'Image.Model/Behavior');
 $extension = ImageValidationBehavior::extensionOf($file['tmp_name']);
 ```
 
@@ -207,8 +209,6 @@ These measures are outside the plugin:
 supported types, or an SVG document that is not valid):
 
 ```php
-App::uses('ImageFile', 'Image.Lib');
-
 $image = ImageFile::read($path); // ['type' => 'png', 'width' => 122, 'height' => 95]
 $image = ImageFile::read($path, ['maxBytes' => 524288]); // with SVG options
 ImageFile::extension($image['type']); // 'png'
@@ -218,8 +218,6 @@ ImageFile::extension($image['type']); // 'png'
 They are for logs and developers; do not show them to users as they are:
 
 ```php
-App::uses('SvgValidator', 'Image.Lib');
-
 $validator = new SvgValidator(['allowStyle' => false]);
 $errors = $validator->validate($contents);
 $size = $validator->dimensions($contents); // [122.0, 95.0], or null

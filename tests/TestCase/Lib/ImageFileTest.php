@@ -1,7 +1,5 @@
 <?php
 
-App::uses('ImageFile', 'Image.Lib');
-
 /**
  * ImageFile: the type and the size are read from the contents of the file
  */

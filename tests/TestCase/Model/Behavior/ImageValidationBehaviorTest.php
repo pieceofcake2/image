@@ -1,10 +1,5 @@
 <?php
 
-App::uses('ConnectionManager', 'Model');
-App::uses('DataSource', 'Model/Datasource');
-App::uses('ImageValidationBehavior', 'Image.Model/Behavior');
-App::uses('Model', 'Model');
-
 /**
  * A datasource without a database (the rules do not use the database)
  */
